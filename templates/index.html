@@ -11,7 +11,7 @@
 
     <form method="post" action="/">
         First name:<br>
-        <input type="number" name="a_vnos" value="">
+        <input type="number" step="any" name="a_vnos" value="">
         <br><br>
         <select name="operVnos">
             <option>Izberi operacijo</option>
@@ -22,14 +22,17 @@
         </select>
         <br><br>
         Last name:<br>
-        <input type="number" name="b_vnos" value="">
+        <input type="number" step="any" name="b_vnos" value="">
         <br><br>
         <input type="submit" value="izračun">
 
+
+        <p>{{a_vnos}} {{operVnos}} {{b_vnos}}</p>
+
         {% if rezultat == 0 %}
-            <p> {{sporocilo}} 0 </p>
+            <p> {{sporocilo}} 0. </p>
         {% else %}
-            <p> {{sporocilo}} {{rezultat}}</p>
+            <p> {{sporocilo}} {{rezultat}}. </p>
         {% endif %}
 
         <!-- {% if rezultat %} <p>{{rezultat}}</p> {% else %} {% endif %} -->

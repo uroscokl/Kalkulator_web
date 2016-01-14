@@ -29,46 +29,52 @@ class BaseHandler(webapp2.RequestHandler):
 
 class MainHandler(BaseHandler):
     def get(self):
-        return self.render_template("index.html")
+        return self.render_template("index2.html")
 
     def post(self):
-
         num_a = float(self.request.get("a_vnos"))
         num_b = float(self.request.get("b_vnos"))
         oper = self.request.get("operVnos")
 
         if oper == "+":
             num_c = num_a + num_b
+            if float(num_a) == int(num_a):
+                num_a = int(num_a)
+            if float(num_b) == int(num_b):
+                num_b = int(num_b)
             if float(num_c) == int(num_c):
-                return int(num_c)
-            else:
-                return num_c
-
+                num_c = int(num_c)
 
         elif oper == "-":
             num_c = num_a - num_b
-            #if float(num_c) == int(num_c):
-            #    return int(num_c)
-            #else:
-            #    return num_c
+            if float(num_a) == int(num_a):
+                num_a = int(num_a)
+            if float(num_b) == int(num_b):
+                num_b = int(num_b)
+            if float(num_c) == int(num_c):
+                num_c = int(num_c)
 
         elif oper == "*":
             num_c = num_a * num_b
-            #if float(num_c) == int(num_c):
-            #    return int(num=_c)
-            #else:
-            #    return num_c
+            if float(num_a) == int(num_a):
+                num_a = int(num_a)
+            if float(num_b) == int(num_b):
+                num_b = int(num_b)
+            if float(num_c) == int(num_c):
+                num_c = int(num_c)
 
         elif oper == "/":
             num_c = num_a / num_b
-            #if float(num_c) == int(num_c):
-            #    return int(num_c)
-            #else:
-            #    return num_c
+            if float(num_a) == int(num_a):
+                num_a = int(num_a)
+            if float(num_b) == int(num_b):
+                num_b = int(num_b)
+            if float(num_c) == int(num_c):
+                num_c = int(num_c)
 
 
-        params = {"a_vnos":num_a, "b_vnos":num_b, "operVnos":oper, "rezultat":num_c, "sporocilo": "Rezultat je"}
-        return self.render_template("index.html",params)
+        params = {"a_vnos":num_a, "b_vnos":num_b, "operVnos":oper, "rezultat":num_c, "sporocilo": "Rezultat je ", "je1":"=", "je0":"= 0"}
+        return self.render_template("index2.html",params)
 
 app = webapp2.WSGIApplication([
     webapp2.Route('/', MainHandler),
